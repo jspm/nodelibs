@@ -49,18 +49,6 @@
 [submodule "lib/console"]
 	path = lib/console
 	url = git@github.com:Raynos/console-browserify
-[submodule "lib/inherits"]
-	path = lib/inherits
-	url = git@github.com:isaacs/inherits
-[submodule "lib/ieee754"]
-	path = lib/ieee754
-	url = git@github.com:feross/ieee754
-[submodule "lib/base64-js"]
-	path = lib/base64-js
-	url = git@github.com:beatgammit/base64-js
-[submodule "lin/sha.js"]
-	path = lib/sha.js
-	url = git@github.com:dominictarr/sha.js
 [submodule "lib/assert"]
 	path = lib/assert
 	url = git@github.com:defunctzombie/commonjs-assert
@@ -70,6 +58,3 @@
 [submodule "lib/string_decoder"]
 	path = lib/string_decoder
 	url = git@github.com:substack/string_decoder
-[submodule "lib/Base64"]
-	path = lib/Base64
-	url = git@github.com:davidchambers/Base64.js

@@ -22,7 +22,7 @@
 module.exports = Stream;
 
 var EE = require('../events').EventEmitter;
-var inherits = require('../inherits');
+var inherits = require('inherits@^2');
 
 inherits(Stream, EE);
 Stream.Readable = require('./readable.js');

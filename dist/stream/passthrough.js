@@ -1,2 +1,2 @@
 // Copyright Joyent, Inc. and other Node contributors.
-function PassThrough(e){return this instanceof PassThrough?void Transform.call(this,e):new PassThrough(e)}module.exports=PassThrough;var Transform=require("./transform.js"),inherits=require("../inherits");inherits(PassThrough,Transform),PassThrough.prototype._transform=function(e,t,r){r(null,e)};
+function PassThrough(e){return this instanceof PassThrough?void Transform.call(this,e):new PassThrough(e)}module.exports=PassThrough;var Transform=require("./transform.js"),inherits=require("inherits@^2");inherits(PassThrough,Transform),PassThrough.prototype._transform=function(e,t,r){r(null,e)};

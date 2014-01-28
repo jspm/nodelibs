@@ -64,7 +64,7 @@
 module.exports = Transform;
 
 var Duplex = require('./duplex.js');
-var inherits = require('../inherits');
+var inherits = require('inherits@^2');
 inherits(Transform, Duplex);
 
 

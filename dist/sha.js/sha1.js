@@ -1,9 +1,0 @@
-/*
- * A JavaScript implementation of the Secure Hash Algorithm, SHA-1, as defined
- * in FIPS PUB 180-1
- * Version 2.1a Copyright Paul Johnston 2000 - 2002.
- * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
- * Distributed under the BSD License
- * See http://pajhome.org.uk/crypt/md5 for details.
- */
-module.exports=function(e,t){function r(){return d.length?d.pop().init():this instanceof r?(this._w=p,t.call(this,64,56),this._h=null,void this.init()):new r}function n(e,t,r,n){return 20>e?t&r|~t&n:40>e?t^r^n:60>e?t&r|t&n|r&n:t^r^n}function i(e){return 20>e?1518500249:40>e?1859775393:60>e?-1894007588:-899497514}function s(e,t){return e+t|0}function o(e,t){return e<<t|e>>>32-t}var a=require("../util").inherits;a(r,t);var u=0,f=4,h=8,c=12,l=16,p=new Int32Array(80),d=[];r.prototype.init=function(){return this._a=1732584193,this._b=4023233417,this._c=2562383102,this._d=271733878,this._e=3285377520,t.prototype.init.call(this),this},r.prototype._POOL=d;new e(1)instanceof DataView;return r.prototype._update=function(){{var e,t,r,a,u,f,h,c,l,p,d=this._block;this._h}e=f=this._a,t=h=this._b,r=c=this._c,a=l=this._d,u=p=this._e;for(var g=this._w,y=0;80>y;y++){var v=g[y]=16>y?d.readInt32BE(4*y):o(g[y-3]^g[y-8]^g[y-14]^g[y-16],1),m=s(s(o(e,5),n(y,t,r,a)),s(s(u,v),i(y)));u=a,a=r,r=o(t,30),t=e,e=m}this._a=s(e,f),this._b=s(t,h),this._c=s(r,c),this._d=s(a,l),this._e=s(u,p)},r.prototype._hash=function(){d.length<100&&d.push(this);var t=new e(20);return t.writeInt32BE(0|this._a,u),t.writeInt32BE(0|this._b,f),t.writeInt32BE(0|this._c,h),t.writeInt32BE(0|this._d,c),t.writeInt32BE(0|this._e,l),t},r};

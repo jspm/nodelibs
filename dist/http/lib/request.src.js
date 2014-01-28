@@ -1,7 +1,7 @@
 var Stream = require('../../stream');
 var Response = require('./response');
-var Base64 = require('../../Base64');
-var inherits = require('../../inherits');
+var Base64 = require('Base64@^0.2.0');
+var inherits = require('inherits@^2');
 
 var Request = module.exports = function (xhr, params) {
     var self = this;

@@ -19,10 +19,6 @@ build: clean
 	cp lib/buffer/index.js packaged/buffer.js
 	cp lib/string_decoder/index.js packaged/string_decoder.js
 
-	cp lib/inherits/inherits_browser.js packaged/inherits.js
-	cp lib/base64-js/lib/b64.js packaged/base64-js.js
-	cp lib/Base64/base64.js packaged/Base64.js
-
 	cp -r lib/crypto packaged/crypto
 	rm packaged/crypto/.git
 	rm -r packaged/crypto/test
@@ -48,13 +44,6 @@ build: clean
 	rm packaged/zlib/.git
 	rm -r packaged/zlib/test
 	echo "module.exports = require('./zlib/index');" > packaged/zlib.js
-
-	cp -r lib/sha.js packaged/sha.js
-	rm packaged/sha.js/.git
-	rm -r packaged/sha.js/test
-	echo "module.exports = require('./sha.js/index');" > packaged/sha.js.js
-
-	cp lib/ieee754/index.js packaged/ieee754.js
 
 	jspm build
 

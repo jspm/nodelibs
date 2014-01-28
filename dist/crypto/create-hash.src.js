@@ -1,4 +1,4 @@
-var createHash = require('../sha.js')
+var createHash = require('sha.js@^1.3.0')
 
 var md5 = toConstructor(require('./md5'))
 

@@ -28,7 +28,7 @@ var Buffer = require('../buffer').Buffer;
 var setImmediate = require('process/browser.js').nextTick;
 var StringDecoder;
 
-var inherits = require('../inherits');
+var inherits = require('inherits@^2');
 inherits(Readable, Stream);
 
 function ReadableState(options, stream) {
