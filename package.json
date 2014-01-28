@@ -12,7 +12,36 @@
     "Base64": "./Base64",
     "base64-js": "./base64-js",
     "sha.js": "./sha.js",
-    "ieee754": "./iee754"
+    "ieee754": "./iee754",
+
+    "assert": "./assert",
+    "buffer": "./buffer",
+    "console": "./console",
+    "constants": "./constants",
+    "crypto": "./crypto",
+    "domain": "./domain",
+    "events": "./events",
+    "http": "./http",
+    "https": "./https",
+    "os": "./os",
+    "path": "./path",
+    "punycode": "./punycode",
+    "querystring": "./querystring",
+    "stream": "./stream",
+    "string_decoder": "./string_decoder",
+    "timers": "./timers",
+    "tty": "./tty",
+    "url": "./url",
+    "util": "./util",
+    "vm": "./vm",
+    "zlib": "./zlib"
+  },
+  "buildConfig": {
+    "minify": true
+  },
+  "directories": {
+    "lib": "packaged",
+    "dist": "dist"
   },
   "license": "MIT"
 }
