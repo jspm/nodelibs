@@ -1,0 +1,18 @@
+{
+  "name": "nodelibs",
+  "version": "0.0.2",
+  "description": "jspm Node builtin libraries",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/jspm/nodelibs"
+  },
+  "map": {
+    "process/browser": "process",
+    "inherits": "./inherits",
+    "Base64": "./Base64",
+    "base64-js": "./base64-js",
+    "sha.js": "./sha.js",
+    "ieee754": "./iee754"
+  },
+  "license": "MIT"
+}
