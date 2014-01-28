@@ -228,6 +228,7 @@
 		    k,
 		    digit,
 		    t,
+		    length,
 		    /** Cached calculation results */
 		    baseMinusT;
 

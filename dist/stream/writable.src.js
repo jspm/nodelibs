@@ -39,7 +39,7 @@ var isArrayBuffer = typeof ArrayBuffer !== 'undefined'
   }
 ;
 
-var inherits = require('inherits@^2');
+var inherits = require('inherits@npm:inherits@^2.0.1');
 var Stream = require('./index.js');
 var setImmediate = require('process/browser.js').nextTick;
 var Buffer = require('../buffer').Buffer;

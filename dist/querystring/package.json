@@ -3,8 +3,15 @@
   "id": "querystring",
   "version": "0.2.0",
   "description": "Node's querystring module for all engines.",
-  "keywords": [ "commonjs", "query", "querystring" ],
-  "author": "Irakli Gozalishvili <rfobic@gmail.com>",
+  "keywords": [
+    "commonjs",
+    "query",
+    "querystring"
+  ],
+  "author": {
+    "name": "Irakli Gozalishvili",
+    "email": "rfobic@gmail.com"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/Gozala/querystring.git",
@@ -58,8 +65,15 @@
       ]
     }
   },
-  "licenses": [{
-    "type" : "MIT",
-    "url" : "https://github.com/Gozala/enchain/License.md"
-  }]
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Gozala/enchain/License.md"
+    }
+  ],
+  "readme": "# querystring\n\n[![Build Status](https://secure.travis-ci.org/Gozala/querystring.png)](http://travis-ci.org/Gozala/querystring)\n\n\n[![Browser support](http://ci.testling.com/Gozala/querystring.png)](http://ci.testling.com/Gozala/querystring)\n\n\n\nNode's querystring module for all engines.\n\n## Install ##\n\n    npm install querystring\n\n",
+  "readmeFilename": "Readme.md",
+  "homepage": "https://github.com/Gozala/querystring",
+  "_id": "querystring@0.2.0",
+  "_from": "querystring@~0.2.0"
 }

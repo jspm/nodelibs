@@ -567,7 +567,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = require('inherits@^2');
+exports.inherits = require('inherits@npm:inherits@^2.0.1');
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object

@@ -10,9 +10,8 @@
   "dependencies": {
     "Base64": "^0.2.0",
     "base64-js": "^0.0.4",
-    "sha.js": "^1.3.0",
     "ieee754": "^1.1.1",
-    "inherits": "^2"
+    "inherits": "^2.0.1"
   },
   "map": {
     "process/browser": "process",
@@ -20,7 +19,6 @@
     "buffer": "./buffer",
     "console": "./console",
     "constants": "./constants",
-    "crypto": "./crypto",
     "domain": "./domain",
     "events": "./events",
     "http": "./http",
