@@ -1,0 +1,1 @@
+var exports=module.exports=function(e){var t=exports[e];if(!t)throw new Error(e+" is not supported (we accept pull requests)");return new t},Buffer=require("../buffer").Buffer,Hash=require("./hash")(Buffer);exports.sha=exports.sha1=require("./sha1")(Buffer,Hash),exports.sha256=require("./sha256")(Buffer,Hash);

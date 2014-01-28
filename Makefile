@@ -24,21 +24,34 @@ build: clean
 	cp lib/Base64/base64.js packaged/Base64.js
 
 	cp -r lib/crypto packaged/crypto
+	rm packaged/crypto/.git
+	rm -r packaged/crypto/test
 	echo "module.exports = require('./crypto/index');" > packaged/crypto.js
 
 	rsync -rc --exclude=node_modules lib/http packaged/
+	rm packaged/http/.git
+	rm -r packaged/http/test
+	rm -r packaged/http/example
 	echo "module.exports = require('./http/index');" > packaged/http.js
 
 	cp -r lib/stream packaged/stream
+	rm packaged/stream/.git
+	rm -r packaged/stream/test
 	echo "module.exports = require('./stream/index');" > packaged/stream.js
 
 	cp -r lib/querystring packaged/querystring
+	rm packaged/querystring/.git
+	rm -r packaged/querystring/test
 	echo "module.exports = require('./querystring/index');" > packaged/querystring.js
 
 	cp -r lib/zlib packaged/zlib
+	rm packaged/zlib/.git
+	rm -r packaged/zlib/test
 	echo "module.exports = require('./zlib/index');" > packaged/zlib.js
 
 	cp -r lib/sha.js packaged/sha.js
+	rm packaged/sha.js/.git
+	rm -r packaged/sha.js/test
 	echo "module.exports = require('./sha.js/index');" > packaged/sha.js.js
 
 	cp lib/ieee754/index.js packaged/ieee754.js
@@ -50,7 +63,7 @@ fetch: clean
 	curl https://raw.github.com/joyent/node/master/lib/url.js > lib/url.js
 
 clean:
-	touch packaged/del
+	touch packaged/rm
 	rm -r packaged/*
 
 	

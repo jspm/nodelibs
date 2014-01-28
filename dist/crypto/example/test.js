@@ -1,0 +1,1 @@
+var crypto=require("../../crypto"),abc=crypto.createHash("sha1").update("abc").digest("hex");console.log(abc);
