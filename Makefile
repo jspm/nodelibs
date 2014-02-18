@@ -18,6 +18,9 @@ build: lib/node_modules clean
 	cp lib/node_modules/native-buffer-browserify/index.js packaged/buffer.js
 	cp lib/node_modules/string_decoder/index.js packaged/string_decoder.js
 
+	mkdir packaged/support
+	cp lib/node_modules/util/support/isBufferBrowser.js packaged/support/isBuffer.js
+
 	echo "var indexof = [].indexOf?function(arr,obj){return arr.indexOf(obj)}:function(arr,obj){for(var i=0;i< arr.length;++i)if(arr[i]===obj)return i;return -1;};" > packaged/vm.js
 	sed 1d lib/node_modules/vm-browserify/index.js >> packaged/vm.js
 
