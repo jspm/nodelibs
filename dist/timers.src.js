@@ -20,4 +20,4 @@ exports.active = function(item) {
   // our naive impl doesn't care (correctness is still preserved)
 };
 
-exports.setImmediate = require('process/browser.js').nextTick;
+exports.setImmediate = require('@@nodeProcess/browser.js').nextTick;
