@@ -14,7 +14,7 @@
     "inherits": "^2.0.1"
   },
   "map": {
-    "process/browser": "@@nodeProcess",
+    "process/browser.js": "@@nodeProcess",
     "process": "@@nodeProcess",
     "assert": "./assert",
     "buffer": "./buffer",

@@ -2808,7 +2808,7 @@ function packF32(v) { return packIEEE754(v, 8, 23); }
 
 module.exports = Duplex;
 var inherits = require('npm:inherits@^2.0.1');
-var setImmediate = require('@@nodeProcess/browser.js').nextTick;
+var setImmediate = require('@@nodeProcess').nextTick;
 var Readable = require('./readable.js');
 var Writable = require('./writable.js');
 
@@ -3055,7 +3055,7 @@ Readable.ReadableState = ReadableState;
 var EE = require('../events').EventEmitter;
 var Stream = require('./index.js');
 var Buffer = require('../buffer').Buffer;
-var setImmediate = require('@@nodeProcess/browser.js').nextTick;
+var setImmediate = require('@@nodeProcess').nextTick;
 var StringDecoder;
 
 var inherits = require('npm:inherits@^2.0.1');
@@ -4199,7 +4199,7 @@ Writable.WritableState = WritableState;
 
 var inherits = require('npm:inherits@^2.0.1');
 var Stream = require('./index.js');
-var setImmediate = require('@@nodeProcess/browser.js').nextTick;
+var setImmediate = require('@@nodeProcess').nextTick;
 var Buffer = require('../buffer').Buffer;
 
 inherits(Writable, Stream);
