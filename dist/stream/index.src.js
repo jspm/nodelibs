@@ -19,9 +19,10 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+var Stream = require('./stream');
+
 module.exports = Stream;
 
-var EE = require('../events').EventEmitter;
 var inherits = require('npm:inherits@^2.0.1');
 
 inherits(Stream, EE);
@@ -34,14 +35,8 @@ Stream.PassThrough = require('./passthrough.js');
 // Backwards-compat with node 0.4.x
 Stream.Stream = Stream;
 
-
-
 // old-style streams.  Note that the pipe method (the only relevant
 // part of this class) is overridden in the Readable class.
-
-function Stream() {
-  EE.call(this);
-}
 
 Stream.prototype.pipe = function(dest, options) {
   var source = this;

@@ -23,7 +23,7 @@ module.exports = Readable;
 Readable.ReadableState = ReadableState;
 
 var EE = require('../events').EventEmitter;
-var Stream = require('./index.js');
+var Stream = require('./stream.js');
 var Buffer = require('../buffer').Buffer;
 var setImmediate = require('@@nodeProcess').nextTick;
 var StringDecoder;
