@@ -1,2 +1,2 @@
 // Bare-bones stream object for circular reference bypassing
-function Stream(){EE.call(this)}var EE=require("../events").EventEmitter;module.exports=Stream;
+function Stream(){EE.call(this)}var EE=require("../events").EventEmitter,inherits=require("npm:inherits@^2.0.1");inherits(Stream,EE),module.exports=Stream;

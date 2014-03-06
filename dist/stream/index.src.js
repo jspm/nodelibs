@@ -23,9 +23,6 @@ var Stream = require('./stream');
 
 module.exports = Stream;
 
-var inherits = require('npm:inherits@^2.0.1');
-
-inherits(Stream, EE);
 Stream.Readable = require('./readable.js');
 Stream.Writable = require('./writable.js');
 Stream.Duplex = require('./duplex.js');
