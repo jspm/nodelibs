@@ -12,7 +12,7 @@
     "base64-js": "^0.0.4",
     "ieee754": "^1.1.1",
     "inherits": "^2.0.1",
-    "json": "jspm/plugin-json@master"
+    "json": "systemjs/plugin-json@master"
   },
   "map": {
     "process/browser.js": "@@nodeProcess",
