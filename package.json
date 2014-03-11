@@ -6,13 +6,13 @@
     "type": "git",
     "url": "git@github.com/jspm/nodelibs"
   },
-  "registry": "jspm",
+  "registry": "npm",
   "dependencies": {
-    "Base64": "npm:Base64@^0.2.0",
-    "base64-js": "npm:base64-js@^0.0.4",
-    "ieee754": "npm:ieee754@^1.1.1",
-    "inherits": "npm:inherits@^2.0.1",
-    "json": "*"
+    "Base64": "^0.2.0",
+    "base64-js": "^0.0.4",
+    "ieee754": "^1.1.1",
+    "inherits": "^2.0.1",
+    "json": "jspm/plugin-json@master"
   },
   "map": {
     "process/browser.js": "@@nodeProcess",
