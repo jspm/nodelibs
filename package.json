@@ -39,7 +39,8 @@
     "zlib": "./zlib"
   },
   "buildConfig": {
-    "minify": true
+    "minify": true,
+    "transpileES6": false
   },
   "directories": {
     "lib": "packaged",

@@ -6,7 +6,7 @@ build: lib/node_modules clean
 
 	cp lib/node_modules/assert/assert.js packaged/assert.js
 	cp lib/node_modules/domain-browser/index.js packaged/domain.js
-	cp lib/node_modules/events-browserify/events.js packaged/events.js
+	cp lib/node_modules/events/events.js packaged/events.js
 	cp lib/node_modules/https-browserify/index.js packaged/https.js
 	cp lib/node_modules/os-browserify/browser.js packaged/os.js
 	cp lib/node_modules/path-browserify/index.js packaged/path.js
@@ -58,7 +58,3 @@ clean:
 
 cleanfetch:
 	rm -r lib/node_modules
-	
-
-	
-
