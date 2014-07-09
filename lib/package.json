@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "events-browserify": "0.0.1",
+    "events": "1.0.0",
     "https-browserify": "0.0.0",
     "tty-browserify": "0.0.0",
     "os-browserify": "~0.1.1",
