@@ -1,5 +1,6 @@
-var base64 = require('npm:base64-js@^0.0.4')
-var ieee754 = require('npm:ieee754@^1.1.1')
+"format cjs";
+var base64 = require('base64-js')
+var ieee754 = require('ieee754')
 
 exports.Buffer = Buffer
 exports.SlowBuffer = Buffer

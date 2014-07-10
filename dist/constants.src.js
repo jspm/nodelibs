@@ -1,3 +1,4 @@
+"format cjs";
 module.exports = 
 {
   "O_RDONLY": 0,

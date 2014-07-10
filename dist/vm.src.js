@@ -1,3 +1,4 @@
+"format cjs";
 var indexof = [].indexOf?function(arr,obj){return arr.indexOf(obj)}:function(arr,obj){for(var i=0;i< arr.length;++i)if(arr[i]===obj)return i;return -1;};
 
 var Object_keys = function (obj) {

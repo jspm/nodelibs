@@ -1,7 +1,8 @@
+"format cjs";
 var Stream = require('../../stream');
 var Response = require('./response');
-var Base64 = require('npm:Base64@^0.2.0');
-var inherits = require('npm:inherits@^2.0.1');
+var Base64 = require('Base64');
+var inherits = require('inherits');
 
 var Request = module.exports = function (xhr, params) {
     var self = this;

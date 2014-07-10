@@ -1,3 +1,4 @@
+"format cjs";
 global.window = {
   location: {
     host: 'localhost:8081',

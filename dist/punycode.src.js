@@ -1,3 +1,4 @@
+"format amd";
 /*! http://mths.be/punycode v1.2.4 by @mathias */
 ;(function(root) {
 

@@ -1,3 +1,4 @@
+"format cjs";
 exports.endianness = function () { return 'LE' };
 
 exports.hostname = function () {

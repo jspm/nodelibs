@@ -1,2 +1,2 @@
-// Copyright Joyent, Inc. and other Node contributors.
-var Stream=require("./stream");module.exports=Stream,Stream.Readable=require("./readable.js"),Stream.Writable=require("./writable.js"),Stream.Duplex=require("./duplex.js"),Stream.Transform=require("./transform.js"),Stream.PassThrough=require("./passthrough.js");
+"format cjs";var Stream=require("./stream");module.exports=Stream,Stream.Readable=require("./readable.js"),Stream.Writable=require("./writable.js"),Stream.Duplex=require("./duplex.js"),Stream.Transform=require("./transform.js"),Stream.PassThrough=require("./passthrough.js");
+//# sourceMappingURL=index.js.map

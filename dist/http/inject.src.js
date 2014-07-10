@@ -1,3 +1,4 @@
+"format cjs";
 ;(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var process=require("__browserify_process");(function () {
     var xws = require('xhr-write-stream');
@@ -473,8 +474,8 @@ var xhrHttp = (function () {
 },{"./lib/request":4,"events":2}],4:[function(require,module,exports){
 var Stream = require('../stream');
 var Response = require('./response');
-var Base64 = require('npm:Base64@^0.2.0');
-var inherits = require('npm:inherits@^2.0.1');
+var Base64 = require('Base64');
+var inherits = require('inherits');
 
 try{
 var Request = module.exports = function (xhr, params) {
@@ -908,7 +909,7 @@ process.chdir = function (dir) {
 };
 
 },{}],9:[function(require,module,exports){
-var base64 = require('npm:base64-js@^0.0.4')
+var base64 = require('base64-js')
 var TA = require('typedarray')
 
 exports.Buffer = Buffer
@@ -2807,7 +2808,7 @@ function packF32(v) { return packIEEE754(v, 8, 23); }
 // Writable.
 
 module.exports = Duplex;
-var inherits = require('npm:inherits@^2.0.1');
+var inherits = require('inherits');
 var setImmediate = require('@@nodeProcess').nextTick;
 var Readable = require('./readable.js');
 var Writable = require('./writable.js');
@@ -2878,7 +2879,7 @@ function onend() {
 module.exports = Stream;
 
 var EE = require('../events').EventEmitter;
-var inherits = require('npm:inherits@^2.0.1');
+var inherits = require('inherits');
 
 inherits(Stream, EE);
 Stream.Readable = require('./readable.js');
@@ -3013,7 +3014,7 @@ module.exports=require(8)
 module.exports = PassThrough;
 
 var Transform = require('./transform.js');
-var inherits = require('npm:inherits@^2.0.1');
+var inherits = require('inherits');
 inherits(PassThrough, Transform);
 
 function PassThrough(options) {
@@ -3058,7 +3059,7 @@ var Buffer = require('../buffer').Buffer;
 var setImmediate = require('@@nodeProcess').nextTick;
 var StringDecoder;
 
-var inherits = require('npm:inherits@^2.0.1');
+var inherits = require('inherits');
 inherits(Readable, Stream);
 
 function ReadableState(options, stream) {
@@ -4029,7 +4030,7 @@ function indexOf (xs, x) {
 module.exports = Transform;
 
 var Duplex = require('./duplex.js');
-var inherits = require('npm:inherits@^2.0.1');
+var inherits = require('inherits');
 inherits(Transform, Duplex);
 
 
@@ -4197,7 +4198,7 @@ function done(stream, er) {
 module.exports = Writable;
 Writable.WritableState = WritableState;
 
-var inherits = require('npm:inherits@^2.0.1');
+var inherits = require('inherits');
 var Stream = require('./index.js');
 var setImmediate = require('@@nodeProcess').nextTick;
 var Buffer = require('../buffer').Buffer;
@@ -5303,7 +5304,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = require('npm:inherits@^2.0.1');
+exports.inherits = require('inherits');
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object

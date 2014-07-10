@@ -1,3 +1,4 @@
+"format cjs";
 'use strict';
 
 exports.decode = exports.parse = require('./decode');

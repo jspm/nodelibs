@@ -1,3 +1,4 @@
+"format cjs";
 const test = require('tap').test;
 const zlibA = require('../../zlib');
 const zlibB = require('..');
