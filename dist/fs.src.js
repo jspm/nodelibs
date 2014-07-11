@@ -1,3 +1,4 @@
+"format cjs";
 exports.readFileSync = function(address) {
   var output;
   var xhr = new XMLHttpRequest();

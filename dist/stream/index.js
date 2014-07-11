@@ -1,2 +1,2 @@
-"format cjs";var Stream=require("./stream");module.exports=Stream,Stream.Readable=require("./readable.js"),Stream.Writable=require("./writable.js"),Stream.Duplex=require("./duplex.js"),Stream.Transform=require("./transform.js"),Stream.PassThrough=require("./passthrough.js");
+"format cjs";var Stream=require("./stream");module.exports=Stream,Stream.Readable=require("./readable"),Stream.Writable=require("./writable"),Stream.Duplex=require("./duplex"),Stream.Transform=require("./transform"),Stream.PassThrough=require("./passthrough");
 //# sourceMappingURL=index.js.map
