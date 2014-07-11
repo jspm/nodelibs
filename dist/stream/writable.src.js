@@ -1,4 +1,3 @@
-"format cjs";
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -40,8 +39,8 @@ var isArrayBuffer = typeof ArrayBuffer !== 'undefined'
   }
 ;
 
-var inherits = require('inherits');
-var Stream = require('./index');
+var inherits = require('npm:inherits@^2.0.1');
+var Stream = require('./stream.js');
 var setImmediate = require('@@nodeProcess').nextTick;
 var Buffer = require('../buffer').Buffer;
 

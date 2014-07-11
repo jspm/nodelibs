@@ -1,4 +1,3 @@
-"format cjs";
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -26,10 +25,10 @@
 // Writable.
 
 module.exports = Duplex;
-var inherits = require('inherits');
+var inherits = require('npm:inherits@^2.0.1');
 var setImmediate = require('@@nodeProcess').nextTick;
-var Readable = require('./readable');
-var Writable = require('./writable');
+var Readable = require('./readable.js');
+var Writable = require('./writable.js');
 
 inherits(Duplex, Readable);
 
