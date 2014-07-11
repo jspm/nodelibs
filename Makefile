@@ -32,8 +32,6 @@ build: lib/node_modules clean
 	cp -r lib/node_modules/stream-browserify packaged/stream
 	rm -r packaged/stream/node_modules
 	echo "module.exports = require('./stream/index');" > packaged/stream.js
-	cp patches/stream.js packaged/stream/stream.js
-	cp patches/stream-index.js packaged/stream/index.js
 
 	cp -r lib/node_modules/querystring packaged/querystring
 	echo "module.exports = require('./querystring/index');" > packaged/querystring.js
