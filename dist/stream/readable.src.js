@@ -26,7 +26,7 @@ Readable.ReadableState = ReadableState;
 var EE = require('../events').EventEmitter;
 var Stream = require('./index');
 var Buffer = require('../buffer').Buffer;
-var setImmediate = require('@@nodeProcess/browser').nextTick;
+var setImmediate = require('@@nodeProcess').nextTick;
 var StringDecoder;
 
 var inherits = require('inherits');

@@ -15,7 +15,7 @@
     "json": "systemjs/plugin-json@master"
   },
   "map": {
-    "process/browser.js": "@@nodeProcess",
+    "process/browser": "@@nodeProcess",
     "process": "@@nodeProcess",
     "assert": "./assert",
     "buffer": "./buffer",
