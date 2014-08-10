@@ -10,6 +10,7 @@ build: lib/node_modules clean
 	cp lib/node_modules/https-browserify/index.js packaged/https.js
 	cp lib/node_modules/os-browserify/browser.js packaged/os.js
 	cp lib/node_modules/path-browserify/index.js packaged/path.js
+	cp lib/node_modules/process/browser.js packaged/process.js
 	cp lib/node_modules/punycode/punycode.js packaged/punycode.js
 	cp lib/node_modules/tty-browserify/index.js packaged/tty.js
 	cp lib/node_modules/url/url.js packaged/url.js
