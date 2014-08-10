@@ -45,5 +45,6 @@
     "lib": "packaged",
     "dist": "dist"
   },
+  "useJSExtensions": true,
   "license": "MIT"
 }

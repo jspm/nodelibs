@@ -26,7 +26,7 @@
 
 module.exports = PassThrough;
 
-var Transform = require('./transform.js');
+var Transform = require('./transform');
 var inherits = require('inherits');
 inherits(PassThrough, Transform);
 

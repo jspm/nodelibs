@@ -6,7 +6,7 @@ var xUint8Array = typeof Uint8Array === 'undefined'
     : Uint8Array
 ;
 
-var Writable = require('../writable.js');
+var Writable = require('../writable');
 var inherits = require('inherits');
 
 inherits(TestWritable, Writable);

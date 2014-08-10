@@ -14,7 +14,7 @@ global.window.XMLHttpRequest = function() {
 };
 
 var test = require('tape').test;
-var http = require('../index.js');
+var http = require('../index');
 
 
 test('Test simple url string', function(t) {

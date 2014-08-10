@@ -24,9 +24,9 @@ module.exports = Readable;
 Readable.ReadableState = ReadableState;
 
 var EE = require('../events').EventEmitter;
-var Stream = require('./index.js');
+var Stream = require('./index');
 var Buffer = require('../buffer').Buffer;
-var setImmediate = require('../process/browser.js').nextTick;
+var setImmediate = require('../process/browser').nextTick;
 var StringDecoder;
 
 var inherits = require('inherits');
