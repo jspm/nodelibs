@@ -42,7 +42,7 @@ var isArrayBuffer = typeof ArrayBuffer !== 'undefined'
 
 var inherits = require('inherits');
 var Stream = require('./index');
-var setImmediate = require('../process/browser').nextTick;
+var setImmediate = require('../process').nextTick;
 var Buffer = require('../buffer').Buffer;
 
 inherits(Writable, Stream);

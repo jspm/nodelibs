@@ -25,6 +25,7 @@
     "https": "./https",
     "os": "./os",
     "path": "./path",
+    "process/browser": "./process",
     "process": "./process",
     "punycode": "./punycode",
     "querystring": "./querystring",
