@@ -1,3 +1,4 @@
+"format cjs";
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -26,7 +27,7 @@
 module.exports = PassThrough;
 
 var Transform = require('./transform.js');
-var inherits = require('npm:inherits@^2.0.1');
+var inherits = require('inherits');
 inherits(PassThrough, Transform);
 
 function PassThrough(options) {

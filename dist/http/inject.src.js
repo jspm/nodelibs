@@ -2809,9 +2809,9 @@ function packF32(v) { return packIEEE754(v, 8, 23); }
 
 module.exports = Duplex;
 var inherits = require('inherits');
-var setImmediate = require('@@nodeProcess').nextTick;
-var Readable = require('./readable');
-var Writable = require('./writable');
+var setImmediate = require('../process/browser.js').nextTick;
+var Readable = require('./readable.js');
+var Writable = require('./writable.js');
 
 inherits(Duplex, Readable);
 
@@ -2882,11 +2882,11 @@ var EE = require('../events').EventEmitter;
 var inherits = require('inherits');
 
 inherits(Stream, EE);
-Stream.Readable = require('./readable');
-Stream.Writable = require('./writable');
-Stream.Duplex = require('./duplex');
-Stream.Transform = require('./transform');
-Stream.PassThrough = require('./passthrough');
+Stream.Readable = require('./readable.js');
+Stream.Writable = require('./writable.js');
+Stream.Duplex = require('./duplex.js');
+Stream.Transform = require('./transform.js');
+Stream.PassThrough = require('./passthrough.js');
 
 // Backwards-compat with node 0.4.x
 Stream.Stream = Stream;
@@ -3013,7 +3013,7 @@ module.exports=require(8)
 
 module.exports = PassThrough;
 
-var Transform = require('./transform');
+var Transform = require('./transform.js');
 var inherits = require('inherits');
 inherits(PassThrough, Transform);
 
@@ -3054,9 +3054,9 @@ module.exports = Readable;
 Readable.ReadableState = ReadableState;
 
 var EE = require('../events').EventEmitter;
-var Stream = require('./index');
+var Stream = require('./index.js');
 var Buffer = require('../buffer').Buffer;
-var setImmediate = require('@@nodeProcess').nextTick;
+var setImmediate = require('../process/browser.js').nextTick;
 var StringDecoder;
 
 var inherits = require('inherits');
@@ -4029,7 +4029,7 @@ function indexOf (xs, x) {
 
 module.exports = Transform;
 
-var Duplex = require('./duplex');
+var Duplex = require('./duplex.js');
 var inherits = require('inherits');
 inherits(Transform, Duplex);
 
@@ -4199,8 +4199,8 @@ module.exports = Writable;
 Writable.WritableState = WritableState;
 
 var inherits = require('inherits');
-var Stream = require('./index');
-var setImmediate = require('@@nodeProcess').nextTick;
+var Stream = require('./index.js');
+var setImmediate = require('../process/browser.js').nextTick;
 var Buffer = require('../buffer').Buffer;
 
 inherits(Writable, Stream);

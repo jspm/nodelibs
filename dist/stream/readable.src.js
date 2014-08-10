@@ -1,3 +1,4 @@
+"format cjs";
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -23,12 +24,12 @@ module.exports = Readable;
 Readable.ReadableState = ReadableState;
 
 var EE = require('../events').EventEmitter;
-var Stream = require('./stream.js');
+var Stream = require('./index.js');
 var Buffer = require('../buffer').Buffer;
-var setImmediate = require('@@nodeProcess').nextTick;
+var setImmediate = require('../process/browser.js').nextTick;
 var StringDecoder;
 
-var inherits = require('npm:inherits@^2.0.1');
+var inherits = require('inherits');
 inherits(Readable, Stream);
 
 function ReadableState(options, stream) {

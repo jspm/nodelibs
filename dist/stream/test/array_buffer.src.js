@@ -1,3 +1,4 @@
+"format cjs";
 var path = require('../../path');
 var test = require('tape');
 var xUint8Array = typeof Uint8Array === 'undefined'
@@ -6,7 +7,7 @@ var xUint8Array = typeof Uint8Array === 'undefined'
 ;
 
 var Writable = require('../writable.js');
-var inherits = require('npm:inherits@^2.0.1');
+var inherits = require('inherits');
 
 inherits(TestWritable, Writable);
 

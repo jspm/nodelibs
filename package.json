@@ -1,6 +1,6 @@
 {
   "name": "nodelibs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "jspm Node builtin libraries",
   "repository": {
     "type": "git",
@@ -15,8 +15,6 @@
     "json": "systemjs/plugin-json@master"
   },
   "map": {
-    "process/browser": "@@nodeProcess",
-    "process": "@@nodeProcess",
     "assert": "./assert",
     "buffer": "./buffer",
     "console": "./console",
@@ -27,6 +25,7 @@
     "https": "./https",
     "os": "./os",
     "path": "./path",
+    "process": "./process",
     "punycode": "./punycode",
     "querystring": "./querystring",
     "stream": "./stream",
@@ -46,6 +45,5 @@
     "lib": "packaged",
     "dist": "dist"
   },
-  "useJSExtensions": true,
   "license": "MIT"
 }

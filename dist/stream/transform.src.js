@@ -1,3 +1,4 @@
+"format cjs";
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -64,7 +65,7 @@
 module.exports = Transform;
 
 var Duplex = require('./duplex.js');
-var inherits = require('npm:inherits@^2.0.1');
+var inherits = require('inherits');
 inherits(Transform, Duplex);
 
 
