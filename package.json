@@ -1,6 +1,5 @@
 {
   "name": "nodelibs",
-  "version": "0.0.3",
   "description": "jspm Node builtin libraries",
   "repository": {
     "type": "git",
@@ -12,7 +11,7 @@
     "base64-js": "^0.0.4",
     "ieee754": "^1.1.1",
     "inherits": "^2.0.1",
-    "json": "systemjs/plugin-json@master"
+    "json": "github:systemjs/plugin-json@^0.1.0"
   },
   "map": {
     "assert": "./assert",
