@@ -1,5 +1,6 @@
 /* */ 
 "format cjs";
+var Buffer = require('../buffer').Buffer;
 (function() {
   var g = ('undefined' === typeof window ? global : window) || {}
   _crypto = (

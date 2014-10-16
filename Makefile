@@ -24,6 +24,14 @@ build: lib/node_modules clean
 	rm -r packaged/crypto/example
 	rm -r packaged/crypto/node_modules
 	echo "var Buffer = require('buffer').Buffer;" > packaged/crypto/helpers.js
+	echo "var Buffer = require('buffer').Buffer;" > packaged/crypto/rng.js
+	echo "var Buffer = require('buffer').Buffer;" > packaged/crypto/index.js
+	echo "var Buffer = require('buffer').Buffer;" > packaged/crypto/create-hmac.js
+	echo "var Buffer = require('buffer').Buffer;" > packaged/crypto/create-hash.js
+	cat lib/node_modules/crypto-browserify/helpers.js >> packaged/crypto/helpers.js
+	cat lib/node_modules/crypto-browserify/rng.js >> packaged/crypto/rng.js
+	cat lib/node_modules/crypto-browserify/index.js >> packaged/crypto/index.js
+	cat lib/node_modules/crypto-browserify/create-hmac.js >> packaged/crypto/create-hmac.js
 	cat lib/node_modules/crypto-browserify/helpers.js >> packaged/crypto/helpers.js
 	echo "module.exports = require('./crypto/index');" > packaged/crypto.js
 

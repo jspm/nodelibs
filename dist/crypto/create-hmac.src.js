@@ -1,5 +1,6 @@
 /* */ 
 "format cjs";
+var Buffer = require('../buffer').Buffer;
 var createHash = require('./create-hash')
 
 var zeroBuffer = new Buffer(128)

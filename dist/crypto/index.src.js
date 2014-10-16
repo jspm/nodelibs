@@ -1,5 +1,6 @@
 /* */ 
 "format cjs";
+var Buffer = require('../buffer').Buffer;
 var rng = require('./rng')
 
 function error () {
