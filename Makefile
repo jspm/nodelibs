@@ -19,6 +19,12 @@ build: lib/node_modules clean
 	cp lib/node_modules/native-buffer-browserify/index.js packaged/buffer.js
 	cp lib/node_modules/string_decoder/index.js packaged/string_decoder.js
 
+	cp -r lib/node_modules/crypto-browserify packaged/crypto
+	rm -r packaged/crypto/test
+	rm -r packaged/crypto/example
+	rm -r packaged/crypto/node_modules
+	echo "module.exports = require('./crypto/index');" > packaged/crypto.js
+
 	mkdir packaged/support
 	cp lib/node_modules/util/support/isBufferBrowser.js packaged/support/isBuffer.js
 
@@ -26,20 +32,29 @@ build: lib/node_modules clean
 	sed 1d lib/node_modules/vm-browserify/index.js >> packaged/vm.js
 
 	cp -r lib/node_modules/http-browserify packaged/http
+	rm -r packaged/http/test
 	rm -r packaged/http/node_modules
 	rm -r packaged/http/example
 	echo "module.exports = require('./http/index');" > packaged/http.js
 
 	cp -r lib/node_modules/stream-browserify packaged/stream
 	rm -r packaged/stream/node_modules
+	rm -r packaged/stream/test
 	echo "module.exports = require('./stream/index');" > packaged/stream.js
 
 	cp -r lib/node_modules/querystring packaged/querystring
+	rm -r packaged/querystring/test
 	echo "module.exports = require('./querystring/index');" > packaged/querystring.js
 
 	cp -r lib/node_modules/zlib-browserify packaged/zlib
 	rm -r packaged/zlib/node_modules
+	rm -r packaged/zlib/test
 	echo "module.exports = require('./zlib/index');" > packaged/zlib.js
+
+	rm packaged/**/*.json
+	rm packaged/**/*.markdown
+	rm packaged/**/*.md
+	rm packaged/**/.[^.]*
 
 	jspm build
 

@@ -1,0 +1,3 @@
+/* */
+"format cjs";function Hmac(e,t){if(!(this instanceof Hmac))return new Hmac(e,t);this._opad=i,this._alg=e;var r="sha512"===e?128:64;t=this._key=Buffer.isBuffer(t)?t:new Buffer(t),t.length>r?t=createHash(e).update(t).digest():t.length<r&&(t=Buffer.concat([t,zeroBuffer],r));for(var n=this._ipad=new Buffer(r),i=this._opad=new Buffer(r),s=0;r>s;s++)n[s]=54^t[s],i[s]=92^t[s];this._hash=createHash(e).update(n)}var createHash=require("./create-hash"),zeroBuffer=new Buffer(128);zeroBuffer.fill(0),module.exports=Hmac,Hmac.prototype.update=function(e,t){return this._hash.update(e,t),this},Hmac.prototype.digest=function(e){var t=this._hash.digest();return createHash(this._alg).update(this._opad).update(t).digest(e)};
+//# sourceMappingURL=create-hmac.js.map

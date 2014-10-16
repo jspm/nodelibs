@@ -1,3 +1,4 @@
+/* */ 
 "format cjs";
 exports.isatty = function () { return false; };
 

@@ -1,3 +1,4 @@
+/* */ 
 "format cjs";
 var Stream = require('../../stream');
 var util = require('../../util');

@@ -1,3 +1,4 @@
+/* */ 
 "format cjs";
 var Zlib = module.exports = require('./zlib');
 

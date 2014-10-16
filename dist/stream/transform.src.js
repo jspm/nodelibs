@@ -1,3 +1,4 @@
+/* */ 
 "format cjs";
 // Copyright Joyent, Inc. and other Node contributors.
 //

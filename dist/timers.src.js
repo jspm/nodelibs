@@ -1,3 +1,4 @@
+/* */ 
 "format cjs";
 // DOM APIs, for completeness
 

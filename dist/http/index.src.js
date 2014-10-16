@@ -1,3 +1,4 @@
+/* */ 
 "format cjs";
 var http = module.exports;
 var EventEmitter = require('../events').EventEmitter;

@@ -1,3 +1,4 @@
+/* */ 
 "format cjs";
 // shim for using process in browser
 

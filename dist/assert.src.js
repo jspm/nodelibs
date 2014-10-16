@@ -1,3 +1,4 @@
+/* */ 
 "format cjs";
 // http://wiki.commonjs.org/wiki/Unit_Testing/1.0
 //

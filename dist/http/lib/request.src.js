@@ -1,3 +1,4 @@
+/* */ 
 "format cjs";
 var Stream = require('../../stream');
 var Response = require('./response');
