@@ -3,7 +3,7 @@
 (function() {
   var g = ('undefined' === typeof window ? global : window) || {}
   _crypto = (
-    g.crypto || g.msCrypto || require('crypto')
+    g.crypto || g.msCrypto || require('../crypto')
   )
   module.exports = function(size) {
     // Modern Browsers
