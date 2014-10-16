@@ -23,7 +23,7 @@ build: lib/node_modules clean
 	rm -r packaged/crypto/test
 	rm -r packaged/crypto/example
 	rm -r packaged/crypto/node_modules
-	echo "var Buffer = require('buffer');" > packaged/crypto/helpers.js
+	echo "var Buffer = require('buffer').Buffer;" > packaged/crypto/helpers.js
 	cat lib/node_modules/crypto-browserify/helpers.js >> packaged/crypto/helpers.js
 	echo "module.exports = require('./crypto/index');" > packaged/crypto.js
 
