@@ -32,7 +32,7 @@ build: lib/node_modules clean
 	cat lib/node_modules/crypto-browserify/rng.js >> packaged/crypto/rng.js
 	cat lib/node_modules/crypto-browserify/index.js >> packaged/crypto/index.js
 	cat lib/node_modules/crypto-browserify/create-hmac.js >> packaged/crypto/create-hmac.js
-	cat lib/node_modules/crypto-browserify/helpers.js >> packaged/crypto/helpers.js
+	cat lib/node_modules/crypto-browserify/create-hash.js >> packaged/crypto/create-hash.js
 	echo "module.exports = require('./crypto/index');" > packaged/crypto.js
 
 	mkdir packaged/support

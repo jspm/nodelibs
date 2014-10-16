@@ -1,3 +1,3 @@
 /* */
-"format cjs";var Buffer=require("../buffer").Buffer;
+"format cjs";function toConstructor(e){return function(){var t=[],r={update:function(e,r){return Buffer.isBuffer(e)||(e=new Buffer(e,r)),t.push(e),this},digest:function(r){var n=Buffer.concat(t),E=e(n);return t=null,r?E.toString(r):E}};return r}}var Buffer=require("../buffer").Buffer,createHash=require("sha.js"),md5=toConstructor(require("./md5")),rmd160=toConstructor(require("ripemd160"));module.exports=function(e){return"md5"===e?new md5:"rmd160"===e?new rmd160:createHash(e)};
 //# sourceMappingURL=create-hash.js.map
