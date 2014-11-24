@@ -68,6 +68,15 @@ build: lib/node_modules clean
 
 	jspm build
 
+	echo "module.exports = nodeRequire('child_process');" > dist/child_process.js
+	echo "module.exports = nodeRequire('cluster');" > dist/cluster.js
+	echo "module.exports = nodeRequire('dgram');" > dist/dgram.js
+	echo "module.exports = nodeRequire('dns');" > dist/dns.js
+	echo "module.exports = nodeRequire('net');" > dist/net.js
+	echo "module.exports = nodeRequire('readline');" > dist/readline.js
+	echo "module.exports = nodeRequire('repl');" > dist/repl.js
+	echo "module.exports = nodeRequire('tls');" > dist/tls.js
+
 fetch:
 	cd lib
 	npm install --production
