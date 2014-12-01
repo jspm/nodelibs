@@ -1,11 +1,11 @@
 /* */ 
 "format cjs";
-var Buffer = require('buffer').Buffer;
+var Buffer = require('../buffer').Buffer;
 'use strict';
 (function() {
   var g = ('undefined' === typeof window ? global : window) || {}
   var _crypto = (
-    g.crypto || g.msCrypto || require('crypto')
+    g.crypto || g.msCrypto || require('../crypto')
   )
   module.exports = function(size) {
     // Modern Browsers

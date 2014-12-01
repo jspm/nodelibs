@@ -1,6 +1,6 @@
 /* */ 
 "format cjs";
-var Buffer = require('buffer').Buffer;
+var Buffer = require('../buffer').Buffer;
 'use strict';
 var rng = require('./rng')
 

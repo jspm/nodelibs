@@ -1,9 +1,9 @@
 /* */ 
 "format cjs";
 var http = module.exports;
-var EventEmitter = require('events').EventEmitter;
+var EventEmitter = require('../events').EventEmitter;
 var Request = require('./lib/request');
-var url = require('url')
+var url = require('../url')
 
 http.request = function (params, cb) {
     if (typeof params === 'string') {

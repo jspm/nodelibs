@@ -3,7 +3,7 @@
 /*global define:false require:false */
 module.exports = (function(){
 	// Import Events
-	var events = require('events');
+	var events = require('../events');
 
 	// Export Domain
 	var domain = {};

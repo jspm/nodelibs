@@ -27,7 +27,7 @@
 // when used in node, this will actually load the util module we depend on
 // versus loading the builtin util module as happens otherwise
 // this is a bug in node module loading as far as I am concerned
-var util = require('util/');
+var util = require('../util');
 
 var pSlice = Array.prototype.slice;
 var hasOwn = Object.prototype.hasOwnProperty;

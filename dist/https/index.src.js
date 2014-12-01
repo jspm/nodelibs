@@ -1,6 +1,6 @@
 /* */ 
 "format cjs";
-var http = require('http');
+var http = require('../http');
 
 var https = module.exports;
 

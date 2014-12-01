@@ -1,6 +1,6 @@
 /* */ 
 "format cjs";
-var nextTick = require('process/browser.js').nextTick;
+var nextTick = require('../process').nextTick;
 var slice = Array.prototype.slice;
 var immediateIds = {};
 var nextImmediateId = 0;

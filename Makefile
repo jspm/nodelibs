@@ -1,12 +1,16 @@
 build: lib/node_modules clean
 
-	cp lib/node_modules/console-browserify/index.js packaged/console.js
-
-	echo "module.exports = " > packaged/constants.js
-	cat lib/node_modules/constants-browserify/constants.json >> packaged/constants.js
-
 	mkdir packaged/assert packaged/domain packaged/events packaged/https packaged/os packaged/path packaged/process packaged/punycode packaged/tty packaged/url packaged/util packaged/timers packaged/buffer packaged/string_decoder packaged/fs
-	cp lib/node_modules/assert/assert.js packaged/assert/index.js
+	mkdir packaged/console packaged/constants
+
+	sed 's/require("date-now")/function() { return new Date().getTime(); }/' lib/node_modules/console-browserify/index.js > packaged/console/index.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('console') : require('./console/index');" > packaged/console.js
+
+	echo "module.exports = " > packaged/constants/index.js
+	cat lib/node_modules/constants-browserify/constants.json >> packaged/constants/index.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('constants') : require('./constants/index');" > packaged/constants.js
+
+	sed 's/util\//util/g' lib/node_modules/assert/assert.js > packaged/assert/index.js
 	cp lib/node_modules/domain-browser/index.js packaged/domain/index.js
 	cp lib/node_modules/events/events.js packaged/events/index.js
 	cp lib/node_modules/https-browserify/index.js packaged/https/index.js

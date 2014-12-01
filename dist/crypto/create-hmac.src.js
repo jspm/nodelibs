@@ -1,10 +1,10 @@
 /* */ 
 "format cjs";
-var Buffer = require('buffer').Buffer;
+var Buffer = require('../buffer').Buffer;
 'use strict';
 var createHash = require('./create-hash')
-var Transform = require('stream').Transform;
-var inherits = require('util').inherits
+var Transform = require('../stream').Transform;
+var inherits = require('../util').inherits
 var zeroBuffer = new Buffer(128)
 zeroBuffer.fill(0)
 

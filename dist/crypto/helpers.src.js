@@ -1,6 +1,6 @@
 /* */ 
 "format cjs";
-var Buffer = require('buffer').Buffer;
+var Buffer = require('../buffer').Buffer;
 'use strict';
 var intSize = 4;
 var zeroBuffer = new Buffer(intSize); zeroBuffer.fill(0);
