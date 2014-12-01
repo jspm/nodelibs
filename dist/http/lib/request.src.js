@@ -1,6 +1,6 @@
 /* */ 
 "format cjs";
-var Stream = require('../stream');
+var Stream = require('../../stream');
 var Response = require('./response');
 var Base64 = require('Base64');
 var inherits = require('inherits');
