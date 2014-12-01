@@ -1,8 +1,9 @@
 /* */ 
 "format cjs";
 /*global window, global*/
-var util = require('./util')
-var assert = require('./assert')
+var util = require("util")
+var assert = require("assert")
+var now = require("date-now")
 
 var slice = Array.prototype.slice
 var console
@@ -17,15 +18,15 @@ if (typeof global !== "undefined" && global.console) {
 }
 
 var functions = [
-    [log, "log"]
-    , [info, "info"]
-    , [warn, "warn"]
-    , [error, "error"]
-    , [time, "time"]
-    , [timeEnd, "timeEnd"]
-    , [trace, "trace"]
-    , [dir, "dir"]
-    , [assert, "assert"]
+    [log, "log"],
+    [info, "info"],
+    [warn, "warn"],
+    [error, "error"],
+    [time, "time"],
+    [timeEnd, "timeEnd"],
+    [trace, "trace"],
+    [dir, "dir"],
+    [consoleAssert, "assert"]
 ]
 
 for (var i = 0; i < functions.length; i++) {
@@ -55,7 +56,7 @@ function error() {
 }
 
 function time(label) {
-    times[label] = Date.now()
+    times[label] = now()
 }
 
 function timeEnd(label) {
@@ -64,7 +65,7 @@ function timeEnd(label) {
         throw new Error("No such label: " + label)
     }
 
-    var duration = Date.now() - time
+    var duration = now() - time
     console.log(label + ": " + duration + "ms")
 }
 
@@ -79,7 +80,7 @@ function dir(object) {
     console.log(util.inspect(object) + "\n")
 }
 
-function assert(expression) {
+function consoleAssert(expression) {
     if (!expression) {
         var arr = slice.call(arguments, 1)
         assert.ok(false, util.format.apply(null, arr))

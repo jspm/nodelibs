@@ -1,3 +1,3 @@
 /* */
-"format cjs";module.exports=require("./http/index");
+"format cjs";module.exports=System._nodeRequire?System._nodeRequire("http"):require("./http/index");
 //# sourceMappingURL=http.js.map

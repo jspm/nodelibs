@@ -1,3 +1,3 @@
 /* */ 
 "format cjs";
-module.exports = require('./zlib/index');
+module.exports = System._nodeRequire ? System._nodeRequire('zlib') : require('./zlib/index');

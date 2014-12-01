@@ -1,1 +1,1 @@
-module.exports = nodeRequire('repl');
+module.exports = System._nodeRequire('repl');

@@ -1,1 +1,1 @@
-module.exports = nodeRequire('net');
+module.exports = System._nodeRequire('net');

@@ -1,3 +1,3 @@
 /* */
-"format cjs";function ReadStream(){throw new Error("tty.ReadStream is not implemented")}function WriteStream(){throw new Error("tty.ReadStream is not implemented")}exports.isatty=function(){return!1},exports.ReadStream=ReadStream,exports.WriteStream=WriteStream;
+"format cjs";module.exports=System._nodeRequire?System._nodeRequire("tty"):require("./tty/index");
 //# sourceMappingURL=tty.js.map

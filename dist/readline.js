@@ -1,1 +1,1 @@
-module.exports = nodeRequire('readline');
+module.exports = System._nodeRequire('readline');

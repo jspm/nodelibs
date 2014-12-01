@@ -1,6 +1,7 @@
 /* */ 
 "format cjs";
-var pbkdf2Export = require('pbkdf2-compat').__pbkdf2Export
+'use strict';
+var pbkdf2Export = require('pbkdf2-compat/pbkdf2')
 
 module.exports = function (crypto, exports) {
   exports = exports || {}

@@ -1,23 +1,42 @@
 build: lib/node_modules clean
+
 	cp lib/node_modules/console-browserify/index.js packaged/console.js
 
 	echo "module.exports = " > packaged/constants.js
 	cat lib/node_modules/constants-browserify/constants.json >> packaged/constants.js
 
-	cp lib/node_modules/assert/assert.js packaged/assert.js
-	cp lib/node_modules/domain-browser/index.js packaged/domain.js
-	cp lib/node_modules/events/events.js packaged/events.js
-	cp lib/node_modules/https-browserify/index.js packaged/https.js
-	cp lib/node_modules/os-browserify/browser.js packaged/os.js
-	cp lib/node_modules/path-browserify/index.js packaged/path.js
-	cp lib/node_modules/process/browser.js packaged/process.js
-	cp lib/node_modules/punycode/punycode.js packaged/punycode.js
-	cp lib/node_modules/tty-browserify/index.js packaged/tty.js
-	cp lib/node_modules/url/url.js packaged/url.js
-	cp lib/node_modules/util/util.js packaged/util.js
-	cp lib/node_modules/timers-browserify/main.js packaged/timers.js
-	cp lib/node_modules/native-buffer-browserify/index.js packaged/buffer.js
-	cp lib/node_modules/string_decoder/index.js packaged/string_decoder.js
+	mkdir packaged/assert packaged/domain packaged/events packaged/https packaged/os packaged/path packaged/process packaged/punycode packaged/tty packaged/url packaged/util packaged/timers packaged/buffer packaged/string_decoder packaged/fs
+	cp lib/node_modules/assert/assert.js packaged/assert/index.js
+	cp lib/node_modules/domain-browser/index.js packaged/domain/index.js
+	cp lib/node_modules/events/events.js packaged/events/index.js
+	cp lib/node_modules/https-browserify/index.js packaged/https/index.js
+	cp lib/node_modules/os-browserify/browser.js packaged/os/index.js
+	cp lib/node_modules/path-browserify/index.js packaged/path/index.js
+	cp lib/node_modules/process/browser.js packaged/process/index.js
+	cp lib/node_modules/punycode/punycode.js packaged/punycode/index.js
+	cp lib/node_modules/tty-browserify/index.js packaged/tty/index.js
+	cp lib/node_modules/url/url.js packaged/url/index.js
+	cp lib/node_modules/util/util.js packaged/util/index.js
+	cp lib/node_modules/timers-browserify/main.js packaged/timers/index.js
+	cp lib/node_modules/native-buffer-browserify/index.js packaged/buffer/index.js
+	cp lib/node_modules/string_decoder/index.js packaged/string_decoder/index.js
+
+	cp fs.js packaged/fs/index.js
+
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('assert') : require('./assert/index');" > packaged/assert.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('domain') : require('./domain/index');" > packaged/domain.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('events') : require('./events/index');" > packaged/events.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('https') : require('./https/index');" > packaged/https.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('os') : require('./os/index');" > packaged/os.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('path') : require('./path/index');" > packaged/path.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('process') : require('./process/index');" > packaged/process.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('punycode') : require('./punycode/index');" > packaged/punycode.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('tty') : require('./tty/index');" > packaged/tty.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('url') : require('./url/index');" > packaged/url.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('util') : require('./util/index');" > packaged/util.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('timers') : require('./timers/index');" > packaged/timers.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('buffer') : require('./buffer/index');" > packaged/buffer.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('string_decoder') : require('./string_decoder/index');" > packaged/string_decoder.js
 
 	cp -r lib/node_modules/crypto-browserify packaged/crypto
 	rm -r packaged/crypto/test
@@ -33,7 +52,7 @@ build: lib/node_modules clean
 	cat lib/node_modules/crypto-browserify/index.js >> packaged/crypto/index.js
 	cat lib/node_modules/crypto-browserify/create-hmac.js >> packaged/crypto/create-hmac.js
 	cat lib/node_modules/crypto-browserify/create-hash.js >> packaged/crypto/create-hash.js
-	echo "module.exports = require('./crypto/index');" > packaged/crypto.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('crypto') : require('./crypto/index');" > packaged/crypto.js
 
 	mkdir packaged/support
 	cp lib/node_modules/util/support/isBufferBrowser.js packaged/support/isBuffer.js
@@ -45,21 +64,23 @@ build: lib/node_modules clean
 	rm -r packaged/http/test
 	rm -r packaged/http/node_modules
 	rm -r packaged/http/example
-	echo "module.exports = require('./http/index');" > packaged/http.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('http') : require('./http/index');" > packaged/http.js
 
 	cp -r lib/node_modules/stream-browserify packaged/stream
 	rm -r packaged/stream/node_modules
 	rm -r packaged/stream/test
-	echo "module.exports = require('./stream/index');" > packaged/stream.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('stream') : require('./stream/index');" > packaged/stream.js
 
 	cp -r lib/node_modules/querystring packaged/querystring
 	rm -r packaged/querystring/test
-	echo "module.exports = require('./querystring/index');" > packaged/querystring.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('querystring') : require('./querystring/index');" > packaged/querystring.js
 
 	cp -r lib/node_modules/zlib-browserify packaged/zlib
 	rm -r packaged/zlib/node_modules
 	rm -r packaged/zlib/test
-	echo "module.exports = require('./zlib/index');" > packaged/zlib.js
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('zlib') : require('./zlib/index');" > packaged/zlib.js
+
+	echo "module.exports = System._nodeRequire ? System._nodeRequire('fs') : require('./fs/index');" > packaged/fs.js
 
 	rm packaged/**/*.json
 	rm packaged/**/*.markdown
@@ -68,14 +89,14 @@ build: lib/node_modules clean
 
 	jspm build
 
-	echo "module.exports = nodeRequire('child_process');" > dist/child_process.js
-	echo "module.exports = nodeRequire('cluster');" > dist/cluster.js
-	echo "module.exports = nodeRequire('dgram');" > dist/dgram.js
-	echo "module.exports = nodeRequire('dns');" > dist/dns.js
-	echo "module.exports = nodeRequire('net');" > dist/net.js
-	echo "module.exports = nodeRequire('readline');" > dist/readline.js
-	echo "module.exports = nodeRequire('repl');" > dist/repl.js
-	echo "module.exports = nodeRequire('tls');" > dist/tls.js
+	echo "module.exports = System._nodeRequire('child_process');" > dist/child_process.js
+	echo "module.exports = System._nodeRequire('cluster');" > dist/cluster.js
+	echo "module.exports = System._nodeRequire('dgram');" > dist/dgram.js
+	echo "module.exports = System._nodeRequire('dns');" > dist/dns.js
+	echo "module.exports = System._nodeRequire('net');" > dist/net.js
+	echo "module.exports = System._nodeRequire('readline');" > dist/readline.js
+	echo "module.exports = System._nodeRequire('repl');" > dist/repl.js
+	echo "module.exports = System._nodeRequire('tls');" > dist/tls.js
 
 fetch:
 	cd lib

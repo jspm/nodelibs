@@ -1,1 +1,1 @@
-module.exports = nodeRequire('dgram');
+module.exports = System._nodeRequire('dgram');

@@ -1,3 +1,3 @@
 /* */ 
 "format cjs";
-module.exports = require('./crypto/index');
+module.exports = System._nodeRequire ? System._nodeRequire('crypto') : require('./crypto/index');

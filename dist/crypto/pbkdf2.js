@@ -1,3 +1,3 @@
 /* */
-"format cjs";var pbkdf2Export=require("pbkdf2-compat").__pbkdf2Export;module.exports=function(e,r){r=r||{};var t=pbkdf2Export(e);return r.pbkdf2=t.pbkdf2,r.pbkdf2Sync=t.pbkdf2Sync,r};
+"format cjs";"use strict";var pbkdf2Export=require("pbkdf2-compat/pbkdf2");module.exports=function(e,t){t=t||{};var r=pbkdf2Export(e);return t.pbkdf2=r.pbkdf2,t.pbkdf2Sync=r.pbkdf2Sync,t};
 //# sourceMappingURL=pbkdf2.js.map

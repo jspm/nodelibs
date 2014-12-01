@@ -1,1 +1,1 @@
-module.exports = nodeRequire('dns');
+module.exports = System._nodeRequire('dns');

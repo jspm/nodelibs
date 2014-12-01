@@ -1,7 +1,7 @@
 /* */ 
 "format cjs";
-var Stream = require('../../stream');
-var util = require('../../util');
+var Stream = require('stream');
+var util = require('util');
 
 var Response = module.exports = function (res) {
     this.offset = 0;

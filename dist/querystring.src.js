@@ -1,3 +1,3 @@
 /* */ 
 "format cjs";
-module.exports = require('./querystring/index');
+module.exports = System._nodeRequire ? System._nodeRequire('querystring') : require('./querystring/index');

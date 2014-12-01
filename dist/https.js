@@ -1,3 +1,3 @@
 /* */
-"format cjs";var http=require("./http"),https=module.exports;for(var key in http)http.hasOwnProperty(key)&&(https[key]=http[key]);https.request=function(e,t){return e||(e={}),e.scheme="https",http.request.call(this,e,t)};
+"format cjs";module.exports=System._nodeRequire?System._nodeRequire("https"):require("./https/index");
 //# sourceMappingURL=https.js.map

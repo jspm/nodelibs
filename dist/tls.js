@@ -1,1 +1,1 @@
-module.exports = nodeRequire('tls');
+module.exports = System._nodeRequire('tls');
