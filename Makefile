@@ -58,8 +58,8 @@ build: lib/node_modules clean
 	cat lib/node_modules/crypto-browserify/create-hash.js >> packaged/crypto/create-hash.js
 	echo "module.exports = System._nodeRequire ? System._nodeRequire('crypto') : require('./crypto/index');" > packaged/crypto.js
 
-	mkdir packaged/support
-	cp lib/node_modules/util/support/isBufferBrowser.js packaged/support/isBuffer.js
+	mkdir packaged/util/support
+	cp lib/node_modules/util/support/isBufferBrowser.js packaged/util/support/isBuffer.js
 
 	echo "var indexof = [].indexOf?function(arr,obj){return arr.indexOf(obj)}:function(arr,obj){for(var i=0;i< arr.length;++i)if(arr[i]===obj)return i;return -1;};" > packaged/vm.js
 	sed 1d lib/node_modules/vm-browserify/index.js >> packaged/vm.js
