@@ -33,7 +33,7 @@ build: lib/node_modules clean
 	echo "module.exports = System._nodeRequire ? System._nodeRequire('https') : require('./https/index');" > packaged/https.js
 	echo "module.exports = System._nodeRequire ? System._nodeRequire('os') : require('./os/index');" > packaged/os.js
 	echo "module.exports = System._nodeRequire ? System._nodeRequire('path') : require('./path/index');" > packaged/path.js
-	echo "module.exports = System._nodeRequire ? System._nodeRequire('process') : require('./process/index');" > packaged/process.js
+	echo "module.exports = System._nodeRequire ? process : require('./process/index');" > packaged/process.js
 	echo "module.exports = System._nodeRequire ? System._nodeRequire('punycode') : require('./punycode/index');" > packaged/punycode.js
 	echo "module.exports = System._nodeRequire ? System._nodeRequire('tty') : require('./tty/index');" > packaged/tty.js
 	echo "module.exports = System._nodeRequire ? System._nodeRequire('url') : require('./url/index');" > packaged/url.js

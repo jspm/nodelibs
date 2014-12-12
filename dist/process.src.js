@@ -1,3 +1,3 @@
 /* */ 
 "format cjs";
-module.exports = System._nodeRequire ? System._nodeRequire('process') : require('./process/index');
+module.exports = System._nodeRequire ? process : require('./process/index');
