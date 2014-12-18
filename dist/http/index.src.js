@@ -1,5 +1,7 @@
 /* */ 
 "format cjs";
+if (System._nodeRequire) return;
+
 var http = module.exports;
 var EventEmitter = require('../events').EventEmitter;
 var Request = require('./lib/request');

@@ -69,6 +69,7 @@ build: lib/node_modules clean
 	rm -r packaged/http/node_modules
 	rm -r packaged/http/example
 	echo "module.exports = System._nodeRequire ? System._nodeRequire('http') : require('./http/index');" > packaged/http.js
+	(echo "if (System._nodeRequire) return;\n" ; cat lib/node_modules/http-browserify/index.js) > packaged/http/index.js
 
 	cp -r lib/node_modules/stream-browserify packaged/stream
 	rm -r packaged/stream/node_modules
