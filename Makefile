@@ -56,7 +56,7 @@ build: lib/node_modules clean
 	cat lib/node_modules/crypto-browserify/index.js >> packaged/crypto/index.js
 	cat lib/node_modules/crypto-browserify/create-hmac.js >> packaged/crypto/create-hmac.js
 	cat lib/node_modules/crypto-browserify/create-hash.js >> packaged/crypto/create-hash.js
-	echo "module.exports = System._nodeRequire ? System._nodeRequire('crypto') : require('./crypto/index');" > packaged/crypto.js
+	echo "if (!System._nodeRequire) throw 'Browser Crypto not currently supported by jspm. Please post an issue.'; module.exports = System._nodeRequire('crypto');" > packaged/crypto.js
 
 	mkdir packaged/util/support
 	cp lib/node_modules/util/support/isBufferBrowser.js packaged/util/support/isBuffer.js

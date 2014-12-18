@@ -1,3 +1,3 @@
 /* */
-"format cjs";var Buffer=require("../buffer").Buffer;!function(){var e=("undefined"==typeof window?global:window)||{},t=e.crypto||e.msCrypto||require("../crypto");module.exports=function(e){if(t.getRandomValues){var r=new Buffer(e);return t.getRandomValues(r),r}if(t.randomBytes)return t.randomBytes(e);throw new Error("secure random number generation not supported by this browser\nuse chrome, FireFox or Internet Explorer 11")}}();
+"format cjs";var Buffer=require("../buffer").Buffer;!function(){var e=("undefined"==typeof window?global:window)||{},r=e.crypto||e.msCrypto||require("../crypto");module.exports=function(e){if(r.getRandomValues){var t=new Buffer(e);return r.getRandomValues(t),t}if(r.randomBytes)return r.randomBytes(e);throw new Error("secure random number generation not supported by this browser\nuse chrome, FireFox or Internet Explorer 11")}}();
 //# sourceMappingURL=rng.js.map
