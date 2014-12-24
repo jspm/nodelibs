@@ -1,3 +1,13 @@
-/* */
-"format cjs";function ReadStream(){throw new Error("tty.ReadStream is not implemented")}function WriteStream(){throw new Error("tty.ReadStream is not implemented")}exports.isatty=function(){return!1},exports.ReadStream=ReadStream,exports.WriteStream=WriteStream;
-//# sourceMappingURL=index.js.map
+/* */ 
+"format cjs";
+exports.isatty = function () { return false; };
+
+function ReadStream() {
+  throw new Error('tty.ReadStream is not implemented');
+}
+exports.ReadStream = ReadStream;
+
+function WriteStream() {
+  throw new Error('tty.ReadStream is not implemented');
+}
+exports.WriteStream = WriteStream;

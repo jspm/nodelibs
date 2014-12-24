@@ -1,3 +1,3 @@
-/* */
-"format cjs";module.exports=System._nodeRequire?System._nodeRequire("buffer"):require("./buffer/index");
-//# sourceMappingURL=buffer.js.map
+/* */ 
+"format cjs";
+module.exports = System._nodeRequire ? System._nodeRequire('buffer') : require('./buffer/index');

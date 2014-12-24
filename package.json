@@ -40,7 +40,7 @@
     "zlib": "./zlib"
   },
   "buildConfig": {
-    "minify": true,
+    "minify": false,
     "transpileES6": false
   },
   "directories": {

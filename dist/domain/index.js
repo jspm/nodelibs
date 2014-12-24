@@ -1,3 +1,39 @@
-/* */
-"format cjs";module.exports=function(){var e=require("../events"),t={};return t.createDomain=t.create=function(){function t(e){r.emit("error",e)}var r=new e.EventEmitter;return r.add=function(e){e.on("error",t)},r.remove=function(e){e.removeListener("error",t)},r.run=function(e){try{e()}catch(t){this.emit("error",t)}return this},r.dispose=function(){return this.removeAllListeners(),this},r},t}.call(this);
-//# sourceMappingURL=index.js.map
+/* */ 
+"format cjs";
+/*global define:false require:false */
+module.exports = (function(){
+	// Import Events
+	var events = require('../events');
+
+	// Export Domain
+	var domain = {};
+	domain.createDomain = domain.create = function(){
+		var d = new events.EventEmitter();
+
+		function emitError(e) {
+			d.emit('error', e)
+		}
+
+		d.add = function(emitter){
+			emitter.on('error', emitError);
+		}
+		d.remove = function(emitter){
+			emitter.removeListener('error', emitError);
+		}
+		d.run = function(fn){
+			try {
+				fn();
+			}
+			catch (err) {
+				this.emit('error', err);
+			}
+			return this;
+		};
+		d.dispose = function(){
+			this.removeAllListeners();
+			return this;
+		};
+		return d;
+	};
+	return domain;
+}).call(this);

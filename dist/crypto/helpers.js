@@ -1,3 +1,38 @@
-/* */
-"format cjs";function toArray(e,t){if(e.length%intSize!==0){var r=e.length+(intSize-e.length%intSize);e=Buffer.concat([e,zeroBuffer],r)}for(var n=[],i=t?e.readInt32BE:e.readInt32LE,s=0;s<e.length;s+=intSize)n.push(i.call(e,s));return n}function toBuffer(e,t,r){for(var n=new Buffer(t),i=r?n.writeInt32BE:n.writeInt32LE,s=0;s<e.length;s++)i.call(n,e[s],4*s,!0);return n}function hash(e,t,r,n){Buffer.isBuffer(e)||(e=new Buffer(e));var i=t(toArray(e,n),e.length*chrsz);return toBuffer(i,r,n)}var Buffer=require("../buffer").Buffer,intSize=4,zeroBuffer=new Buffer(intSize);zeroBuffer.fill(0);var chrsz=8;module.exports={hash:hash};
-//# sourceMappingURL=helpers.js.map
+/* */ 
+"format cjs";
+var Buffer = require('../buffer').Buffer;
+'use strict';
+var intSize = 4;
+var zeroBuffer = new Buffer(intSize); zeroBuffer.fill(0);
+var chrsz = 8;
+
+function toArray(buf, bigEndian) {
+  if ((buf.length % intSize) !== 0) {
+    var len = buf.length + (intSize - (buf.length % intSize));
+    buf = Buffer.concat([buf, zeroBuffer], len);
+  }
+
+  var arr = [];
+  var fn = bigEndian ? buf.readInt32BE : buf.readInt32LE;
+  for (var i = 0; i < buf.length; i += intSize) {
+    arr.push(fn.call(buf, i));
+  }
+  return arr;
+}
+
+function toBuffer(arr, size, bigEndian) {
+  var buf = new Buffer(size);
+  var fn = bigEndian ? buf.writeInt32BE : buf.writeInt32LE;
+  for (var i = 0; i < arr.length; i++) {
+    fn.call(buf, arr[i], i * 4, true);
+  }
+  return buf;
+}
+
+function hash(buf, fn, hashSize, bigEndian) {
+  if (!Buffer.isBuffer(buf)) buf = new Buffer(buf);
+  var arr = fn(toArray(buf, bigEndian), buf.length * chrsz);
+  return toBuffer(arr, hashSize, bigEndian);
+}
+
+module.exports = { hash: hash };

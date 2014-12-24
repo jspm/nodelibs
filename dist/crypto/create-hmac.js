@@ -1,3 +1,69 @@
-/* */
-"format cjs";function Hmac(e,t){if(!(this instanceof Hmac))return new Hmac(e,t);Transform.call(this),this._opad=i,this._alg=e;var r="sha512"===e||"sha384"===e?128:64;t=this._key=Buffer.isBuffer(t)?t:new Buffer(t),t.length>r?t=createHash(e).update(t).digest():t.length<r&&(t=Buffer.concat([t,zeroBuffer],r));for(var n=this._ipad=new Buffer(r),i=this._opad=new Buffer(r),s=0;r>s;s++)n[s]=54^t[s],i[s]=92^t[s];this._hash=createHash(e).update(n)}var Buffer=require("../buffer").Buffer,createHash=require("./create-hash"),Transform=require("../stream").Transform,inherits=require("../util").inherits,zeroBuffer=new Buffer(128);zeroBuffer.fill(0),module.exports=Hmac,inherits(Hmac,Transform),Hmac.prototype.update=function(e,t){return this.write(e,t),this},Hmac.prototype._transform=function(e,t,r){this._hash.update(e),r()},Hmac.prototype._flush=function(e){var t=this._hash.digest();this.push(createHash(this._alg).update(this._opad).update(t).digest()),e()},Hmac.prototype.digest=function(e){this.end();for(var t,r=new Buffer("");t=this.read();)r=Buffer.concat([r,t]);return e&&(r=r.toString(e)),r};
-//# sourceMappingURL=create-hmac.js.map
+/* */ 
+"format cjs";
+var Buffer = require('../buffer').Buffer;
+'use strict';
+var createHash = require('./create-hash')
+var Transform = require('../stream').Transform;
+var inherits = require('../util').inherits
+var zeroBuffer = new Buffer(128)
+zeroBuffer.fill(0)
+
+module.exports = Hmac
+inherits(Hmac, Transform)
+function Hmac (alg, key) {
+  if(!(this instanceof Hmac)) return new Hmac(alg, key)
+
+  Transform.call(this)
+  this._opad = opad
+  this._alg = alg
+
+  var blocksize = (alg === 'sha512' || alg === 'sha384') ? 128 : 64
+
+  key = this._key = !Buffer.isBuffer(key) ? new Buffer(key) : key
+
+  if(key.length > blocksize) {
+    key = createHash(alg).update(key).digest()
+  } else if(key.length < blocksize) {
+    key = Buffer.concat([key, zeroBuffer], blocksize)
+  }
+
+  var ipad = this._ipad = new Buffer(blocksize)
+  var opad = this._opad = new Buffer(blocksize)
+
+  for(var i = 0; i < blocksize; i++) {
+    ipad[i] = key[i] ^ 0x36
+    opad[i] = key[i] ^ 0x5C
+  }
+
+  this._hash = createHash(alg).update(ipad)
+}
+
+Hmac.prototype.update = function (data, enc) {
+  this.write(data, enc)
+  return this
+}
+
+Hmac.prototype._transform = function (data, _, next) {
+  this._hash.update(data)
+  next()
+}
+
+Hmac.prototype._flush = function (next) {
+  var h = this._hash.digest()
+  this.push(createHash(this._alg).update(this._opad).update(h).digest())
+  next()
+}
+
+Hmac.prototype.digest = function (enc) {
+  this.end()
+  var outData = new Buffer('')
+  var chunk
+  while ((chunk = this.read())) {
+    outData = Buffer.concat([outData, chunk])
+  }
+  if (enc) {
+    outData = outData.toString(enc)
+  }
+  return outData
+}
+

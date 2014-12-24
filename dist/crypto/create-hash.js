@@ -1,3 +1,86 @@
-/* */
-"format cjs";function HashNoConstructor(e){Transform.call(this),this._hash=e,this.buffers=[]}function Hash(e){Transform.call(this),this._hash=e}var Buffer=require("../buffer").Buffer,createHash=require("sha.js"),md5=require("./md5"),rmd160=require("ripemd160"),Transform=require("../stream").Transform,inherits=require("../util").inherits;module.exports=function(e){return"md5"===e?new HashNoConstructor(md5):"rmd160"===e?new HashNoConstructor(rmd160):new Hash(createHash(e))},inherits(HashNoConstructor,Transform),HashNoConstructor.prototype._transform=function(e,t,r){this.buffers.push(e),r()},HashNoConstructor.prototype._flush=function(e){var t=Buffer.concat(this.buffers),r=this._hash(t);this.buffers=null,this.push(r),e()},HashNoConstructor.prototype.update=function(e,t){return this.write(e,t),this},HashNoConstructor.prototype.digest=function(e){this.end();for(var t,r=new Buffer("");t=this.read();)r=Buffer.concat([r,t]);return e&&(r=r.toString(e)),r},inherits(Hash,Transform),Hash.prototype._transform=function(e,t,r){this._hash.update(e),r()},Hash.prototype._flush=function(e){this.push(this._hash.digest()),this._hash=null,e()},Hash.prototype.update=function(e,t){return this.write(e,t),this},Hash.prototype.digest=function(e){this.end();for(var t,r=new Buffer("");t=this.read();)r=Buffer.concat([r,t]);return e&&(r=r.toString(e)),r};
-//# sourceMappingURL=create-hash.js.map
+/* */ 
+"format cjs";
+var Buffer = require('../buffer').Buffer;
+'use strict';
+var createHash = require('sha.js')
+
+var md5 = require('./md5')
+var rmd160 = require('ripemd160')
+var Transform = require('../stream').Transform;
+var inherits = require('../util').inherits
+
+module.exports = function (alg) {
+  if('md5' === alg) return new HashNoConstructor(md5)
+  if('rmd160' === alg) return new HashNoConstructor(rmd160)
+  return new Hash(createHash(alg))
+}
+inherits(HashNoConstructor, Transform)
+
+function HashNoConstructor(hash) {
+  Transform.call(this);
+  this._hash = hash
+  this.buffers = []
+}
+
+HashNoConstructor.prototype._transform = function (data, _, done) {
+  this.buffers.push(data)
+  done()
+}
+HashNoConstructor.prototype._flush = function (done) {
+  var buf = Buffer.concat(this.buffers)
+  var r = this._hash(buf)
+  this.buffers = null
+  this.push(r)
+  done()
+}
+HashNoConstructor.prototype.update = function (data, enc) {
+  this.write(data, enc)
+  return this
+}
+
+HashNoConstructor.prototype.digest = function (enc) {
+  this.end()
+  var outData = new Buffer('')
+  var chunk
+  while ((chunk = this.read())) {
+    outData = Buffer.concat([outData, chunk])
+  }
+  if (enc) {
+    outData = outData.toString(enc)
+  }
+  return outData
+}
+
+inherits(Hash, Transform)
+
+function Hash(hash) {
+  Transform.call(this);
+  this._hash = hash
+}
+
+Hash.prototype._transform = function (data, _, done) {
+  this._hash.update(data)
+  done()
+}
+Hash.prototype._flush = function (done) {
+  this.push(this._hash.digest())
+  this._hash = null
+  done()
+}
+Hash.prototype.update = function (data, enc) {
+  this.write(data, enc)
+  return this
+}
+
+Hash.prototype.digest = function (enc) {
+  this.end()
+  var outData = new Buffer('')
+  var chunk
+  while ((chunk = this.read())) {
+    outData = Buffer.concat([outData, chunk])
+  }
+  if (enc) {
+    outData = outData.toString(enc)
+  }
+  return outData
+}

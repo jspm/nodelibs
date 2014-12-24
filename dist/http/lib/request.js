@@ -1,3 +1,211 @@
-/* */
-"format cjs";var Stream=require("../../stream"),Response=require("./response"),Base64=require("Base64"),inherits=require("inherits"),Request=module.exports=function(e,t){var r=this;r.writable=!0,r.xhr=e,r.body=[],r.uri=(t.protocol||"http:")+"//"+t.host+(t.port?":"+t.port:"")+(t.path||"/"),"undefined"==typeof t.withCredentials&&(t.withCredentials=!0);try{e.withCredentials=t.withCredentials}catch(n){}if(t.responseType)try{e.responseType=t.responseType}catch(n){}if(e.open(t.method||"GET",r.uri,!0),e.onerror=function(){r.emit("error",new Error("Network error"))},r._headers={},t.headers)for(var i=objectKeys(t.headers),s=0;s<i.length;s++){var o=i[s];if(r.isSafeRequestHeader(o)){var a=t.headers[o];r.setHeader(o,a)}}t.auth&&this.setHeader("Authorization","Basic "+Base64.btoa(t.auth));var u=new Response;u.on("close",function(){r.emit("close")}),u.on("ready",function(){r.emit("response",u)}),u.on("error",function(e){r.emit("error",e)}),e.onreadystatechange=function(){e.__aborted||u.handle(e)}};inherits(Request,Stream),Request.prototype.setHeader=function(e,t){this._headers[e.toLowerCase()]=t},Request.prototype.getHeader=function(e){return this._headers[e.toLowerCase()]},Request.prototype.removeHeader=function(e){delete this._headers[e.toLowerCase()]},Request.prototype.write=function(e){this.body.push(e)},Request.prototype.destroy=function(){this.xhr.__aborted=!0,this.xhr.abort(),this.emit("close")},Request.prototype.end=function(e){void 0!==e&&this.body.push(e);for(var t=objectKeys(this._headers),r=0;r<t.length;r++){var n=t[r],i=this._headers[n];if(isArray(i))for(var s=0;s<i.length;s++)this.xhr.setRequestHeader(n,i[s]);else this.xhr.setRequestHeader(n,i)}if(0===this.body.length)this.xhr.send("");else if("string"==typeof this.body[0])this.xhr.send(this.body.join(""));else if(isArray(this.body[0])){for(var o=[],r=0;r<this.body.length;r++)o.push.apply(o,this.body[r]);this.xhr.send(o)}else if(/Array/.test(Object.prototype.toString.call(this.body[0]))){for(var a=0,r=0;r<this.body.length;r++)a+=this.body[r].length;for(var o=new this.body[0].constructor(a),u=0,r=0;r<this.body.length;r++)for(var f=this.body[r],s=0;s<f.length;s++)o[u++]=f[s];this.xhr.send(o)}else if(isXHR2Compatible(this.body[0]))this.xhr.send(this.body[0]);else{for(var o="",r=0;r<this.body.length;r++)o+=this.body[r].toString();this.xhr.send(o)}},Request.unsafeHeaders=["accept-charset","accept-encoding","access-control-request-headers","access-control-request-method","connection","content-length","cookie","cookie2","content-transfer-encoding","date","expect","host","keep-alive","origin","referer","te","trailer","transfer-encoding","upgrade","user-agent","via"],Request.prototype.isSafeRequestHeader=function(e){return e?-1===indexOf(Request.unsafeHeaders,e.toLowerCase()):!1};var objectKeys=Object.keys||function(e){var t=[];for(var r in e)t.push(r);return t},isArray=Array.isArray||function(e){return"[object Array]"===Object.prototype.toString.call(e)},indexOf=function(e,t){if(e.indexOf)return e.indexOf(t);for(var r=0;r<e.length;r++)if(e[r]===t)return r;return-1},isXHR2Compatible=function(e){return"undefined"!=typeof Blob&&e instanceof Blob?!0:"undefined"!=typeof ArrayBuffer&&e instanceof ArrayBuffer?!0:"undefined"!=typeof FormData&&e instanceof FormData?!0:void 0};
-//# sourceMappingURL=request.js.map
+/* */ 
+"format cjs";
+var Stream = require('../../stream');
+var Response = require('./response');
+var Base64 = require('Base64');
+var inherits = require('inherits');
+
+var Request = module.exports = function (xhr, params) {
+    var self = this;
+    self.writable = true;
+    self.xhr = xhr;
+    self.body = [];
+    
+    self.uri = (params.protocol || 'http:') + '//'
+        + params.host
+        + (params.port ? ':' + params.port : '')
+        + (params.path || '/')
+    ;
+    
+    if (typeof params.withCredentials === 'undefined') {
+        params.withCredentials = true;
+    }
+
+    try { xhr.withCredentials = params.withCredentials }
+    catch (e) {}
+    
+    if (params.responseType) try { xhr.responseType = params.responseType }
+    catch (e) {}
+    
+    xhr.open(
+        params.method || 'GET',
+        self.uri,
+        true
+    );
+
+    xhr.onerror = function(event) {
+        self.emit('error', new Error('Network error'));
+    };
+
+    self._headers = {};
+    
+    if (params.headers) {
+        var keys = objectKeys(params.headers);
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            if (!self.isSafeRequestHeader(key)) continue;
+            var value = params.headers[key];
+            self.setHeader(key, value);
+        }
+    }
+    
+    if (params.auth) {
+        //basic auth
+        this.setHeader('Authorization', 'Basic ' + Base64.btoa(params.auth));
+    }
+
+    var res = new Response;
+    res.on('close', function () {
+        self.emit('close');
+    });
+    
+    res.on('ready', function () {
+        self.emit('response', res);
+    });
+
+    res.on('error', function (err) {
+        self.emit('error', err);
+    });
+    
+    xhr.onreadystatechange = function () {
+        // Fix for IE9 bug
+        // SCRIPT575: Could not complete the operation due to error c00c023f
+        // It happens when a request is aborted, calling the success callback anyway with readyState === 4
+        if (xhr.__aborted) return;
+        res.handle(xhr);
+    };
+};
+
+inherits(Request, Stream);
+
+Request.prototype.setHeader = function (key, value) {
+    this._headers[key.toLowerCase()] = value
+};
+
+Request.prototype.getHeader = function (key) {
+    return this._headers[key.toLowerCase()]
+};
+
+Request.prototype.removeHeader = function (key) {
+    delete this._headers[key.toLowerCase()]
+};
+
+Request.prototype.write = function (s) {
+    this.body.push(s);
+};
+
+Request.prototype.destroy = function (s) {
+    this.xhr.__aborted = true;
+    this.xhr.abort();
+    this.emit('close');
+};
+
+Request.prototype.end = function (s) {
+    if (s !== undefined) this.body.push(s);
+
+    var keys = objectKeys(this._headers);
+    for (var i = 0; i < keys.length; i++) {
+        var key = keys[i];
+        var value = this._headers[key];
+        if (isArray(value)) {
+            for (var j = 0; j < value.length; j++) {
+                this.xhr.setRequestHeader(key, value[j]);
+            }
+        }
+        else this.xhr.setRequestHeader(key, value)
+    }
+
+    if (this.body.length === 0) {
+        this.xhr.send('');
+    }
+    else if (typeof this.body[0] === 'string') {
+        this.xhr.send(this.body.join(''));
+    }
+    else if (isArray(this.body[0])) {
+        var body = [];
+        for (var i = 0; i < this.body.length; i++) {
+            body.push.apply(body, this.body[i]);
+        }
+        this.xhr.send(body);
+    }
+    else if (/Array/.test(Object.prototype.toString.call(this.body[0]))) {
+        var len = 0;
+        for (var i = 0; i < this.body.length; i++) {
+            len += this.body[i].length;
+        }
+        var body = new(this.body[0].constructor)(len);
+        var k = 0;
+        
+        for (var i = 0; i < this.body.length; i++) {
+            var b = this.body[i];
+            for (var j = 0; j < b.length; j++) {
+                body[k++] = b[j];
+            }
+        }
+        this.xhr.send(body);
+    }
+    else if (isXHR2Compatible(this.body[0])) {
+        this.xhr.send(this.body[0]);
+    }
+    else {
+        var body = '';
+        for (var i = 0; i < this.body.length; i++) {
+            body += this.body[i].toString();
+        }
+        this.xhr.send(body);
+    }
+};
+
+// Taken from http://dxr.mozilla.org/mozilla/mozilla-central/content/base/src/nsXMLHttpRequest.cpp.html
+Request.unsafeHeaders = [
+    "accept-charset",
+    "accept-encoding",
+    "access-control-request-headers",
+    "access-control-request-method",
+    "connection",
+    "content-length",
+    "cookie",
+    "cookie2",
+    "content-transfer-encoding",
+    "date",
+    "expect",
+    "host",
+    "keep-alive",
+    "origin",
+    "referer",
+    "te",
+    "trailer",
+    "transfer-encoding",
+    "upgrade",
+    "user-agent",
+    "via"
+];
+
+Request.prototype.isSafeRequestHeader = function (headerName) {
+    if (!headerName) return false;
+    return indexOf(Request.unsafeHeaders, headerName.toLowerCase()) === -1;
+};
+
+var objectKeys = Object.keys || function (obj) {
+    var keys = [];
+    for (var key in obj) keys.push(key);
+    return keys;
+};
+
+var isArray = Array.isArray || function (xs) {
+    return Object.prototype.toString.call(xs) === '[object Array]';
+};
+
+var indexOf = function (xs, x) {
+    if (xs.indexOf) return xs.indexOf(x);
+    for (var i = 0; i < xs.length; i++) {
+        if (xs[i] === x) return i;
+    }
+    return -1;
+};
+
+var isXHR2Compatible = function (obj) {
+    if (typeof Blob !== 'undefined' && obj instanceof Blob) return true;
+    if (typeof ArrayBuffer !== 'undefined' && obj instanceof ArrayBuffer) return true;
+    if (typeof FormData !== 'undefined' && obj instanceof FormData) return true;
+};
