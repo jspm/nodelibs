@@ -11,7 +11,15 @@
     "base64-js": "npm:base64-js@~0.0.4",
     "ieee754": "npm:ieee754@~1.1.1",
     "inherits": "npm:inherits@~2.0.1",
-    "json": "github:systemjs/plugin-json@^0.1.0"
+    "json": "github:systemjs/plugin-json@^0.1.0",
+    "browserify-aes": "npm:browserify-aes@0.6.1",
+    "create-ecdh": "npm:create-ecdh@1.0.0",
+    "diffie-hellman": "npm:diffie-hellman@2.2.0",
+    "browserify-sign": "npm:browserify-sign@2.7.0",
+    "pbkdf2-compat": "npm:pbkdf2-compat@2.0.1",
+    "public-encrypt": "npm:public-encrypt@1.1.0",
+    "ripemd160": "npm:ripemd160@0.2.0",
+    "sha.js": "npm:sha.js@2.3.0"
   },
   "map": {
     "assert": "./assert",
