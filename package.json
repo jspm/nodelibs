@@ -27,6 +27,9 @@
     },
     "./repl.js": {
       "node": "@node/repl"
+    },
+    "./tls.js": {
+      "node": "@node/tls"
     }
   }
 }
