@@ -1,8 +1,32 @@
 {
   "dependencies": {},
   "map": {
+    "./child_process.js": {
+      "node": "@node/child_process"
+    },
+    "./cluster.js": {
+      "node": "@node/cluster"
+    },
+    "./dgram.js": {
+      "node": "@node/dgram"
+    },
+    "./dns.js": {
+      "node": "@node/dns"
+    },
     "./fs.js": {
       "node": "@node/fs"
+    },
+    "./module.js": {
+      "node": "@node/module"
+    },
+    "./net.js": {
+      "node": "@node/net"
+    },
+    "./readline.js": {
+      "node": "@node/readline"
+    },
+    "./repl.js": {
+      "node": "@node/repl"
     }
   }
 }
