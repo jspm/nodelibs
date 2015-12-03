@@ -23,7 +23,7 @@
       "node": "@node/net"
     },
     "./process.js": {
-      "node": "@node/process"
+      "node": "./process-node.js"
     },
     "./readline.js": {
       "node": "@node/readline"
