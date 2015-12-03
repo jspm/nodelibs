@@ -22,6 +22,9 @@
     "./net.js": {
       "node": "@node/net"
     },
+    "./process.js": {
+      "node": "@node/process"
+    },
     "./readline.js": {
       "node": "@node/readline"
     },
