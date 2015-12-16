@@ -17,7 +17,8 @@
       "node": "@node/fs"
     },
     "./module.js": {
-      "node": "@node/module"
+      "node": "@node/module",
+      "browser": "@empty"
     },
     "./net.js": {
       "node": "@node/net"

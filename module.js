@@ -1,1 +1,0 @@
-throw new Error('The NodeJS "module" module is not available in the browser.');
