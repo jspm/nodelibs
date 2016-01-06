@@ -1,11 +1,17 @@
 {
   "dependencies": {},
   "map": {
+    "./assert.js": {
+      "node": "@node/assert"
+    },
     "./child_process.js": {
       "node": "@node/child_process"
     },
     "./cluster.js": {
       "node": "@node/cluster"
+    },
+    "./console.js": {
+      "node": "@node/console"
     },
     "./constants.js": {
       "node": "@node/constants"
@@ -21,6 +27,9 @@
     },
     "./fs.js": {
       "node": "@node/fs"
+    },
+    "./isBuffer.js": {
+      "~node": "./isBufferBrowser.js"
     },
     "./module.js": {
       "node": "@node/module",
@@ -49,6 +58,9 @@
     },
     "./tty.js": {
       "node": "@node/tty"
+    },
+    "./util.js": {
+      "node": "@node/util"
     },
     "./vm.js": {
       "node": "@node/vm"
