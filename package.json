@@ -7,11 +7,17 @@
     "./cluster.js": {
       "node": "@node/cluster"
     },
+    "./constants.js": {
+      "node": "@node/constants"
+    },
     "./dgram.js": {
       "node": "@node/dgram"
     },
     "./dns.js": {
       "node": "@node/dns"
+    },
+    "./events.js": {
+      "node": "@node/events"
     },
     "./fs.js": {
       "node": "@node/fs"
@@ -23,8 +29,14 @@
     "./net.js": {
       "node": "@node/net"
     },
+    "./path.js": {
+      "node": "@node/path"
+    },
     "./process.js": {
       "node": "./process-node.js"
+    },
+    "./querystring.js": {
+      "node": "@node/querystring"
     },
     "./readline.js": {
       "node": "@node/readline"
@@ -34,6 +46,12 @@
     },
     "./tls.js": {
       "node": "@node/tls"
+    },
+    "./tty.js": {
+      "node": "@node/tty"
+    },
+    "./vm.js": {
+      "node": "@node/vm"
     }
   }
 }
