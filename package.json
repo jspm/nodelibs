@@ -6,8 +6,8 @@
       "node": "@node/assert"
     },
     "./buffer.js": {
-      "node": "@node/buffer",
-      "browser": "./buffer.js"
+      "node": "./buffer.js",
+      "browser": "buffer"
     },
     "./child_process.js": {
       "node": "@node/child_process"
