@@ -1,4 +1,5 @@
 {
+  "main": false,
   "dependencies": {},
   "map": {
     "./assert.js": {
