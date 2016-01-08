@@ -2,7 +2,7 @@
  * From https://github.com/substack/https-browserify/blob/master/index.js
  */
 
-var http = require('http');
+var http = require('stream-http');
 
 var https = module.exports;
 

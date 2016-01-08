@@ -4,8 +4,16 @@
     "./assert.js": {
       "node": "@node/assert"
     },
+    "./buffer.js": {
+      "node": "@node/buffer",
+      "browser": "./buffer.js"
+    },
     "./child_process.js": {
       "node": "@node/child_process"
+    },
+    "./crypto.js": {
+      "node": "@node/crypto",
+      "browser": "crypto-browserify"
     },
     "./cluster.js": {
       "node": "@node/cluster"
@@ -26,6 +34,10 @@
     "./dns.js": {
       "node": "@node/dns"
     },
+    "./domain.js": {
+      "node": "@node/domain",
+      "browser": "domain-browser"
+    },
     "./events.js": {
       "node": "@node/events"
     },
@@ -34,7 +46,7 @@
     },
     "./http.js": {
       "node": "@node/http",
-      "browser": "http"
+      "browser": "stream-http"
     },
     "./https.js": {
       "node": "@node/https"
@@ -48,6 +60,10 @@
     },
     "./net.js": {
       "node": "@node/net"
+    },
+    "./os.js": {
+      "node": "@node/os",
+      "browser": "os-browserify"
     },
     "./path.js": {
       "node": "@node/path"
@@ -70,17 +86,25 @@
     },
     "./stream.js": {
       "node": "@node/stream",
-      "browser": "stream"
+      "browser": "stream-browserify"
     },
     "./string_decoder": {
       "node": "@node/string_decoder",
       "browser": "string_decoder"
+    },
+    "./timers.js": {
+      "node": "@node/timers",
+      "browser": "timers-browserify"
     },
     "./tls.js": {
       "node": "@node/tls"
     },
     "./tty.js": {
       "node": "@node/tty"
+    },
+    "./url.js": {
+      "node": "@node/url",
+      "browser": "url"
     },
     "./util.js": {
       "node": "@node/util"
@@ -90,7 +114,7 @@
     },
     "./zlib.js": {
       "node": "@node/zlib",
-      "browser": "zlib"
+      "browser": "browserify-zlib"
     }
   }
 }
