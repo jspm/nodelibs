@@ -16,6 +16,10 @@
     "./constants.js": {
       "node": "@node/constants"
     },
+    "./crypto.js": {
+      "node": "@node/crypto",
+      "browser": "crypto"
+    },
     "./dgram.js": {
       "node": "@node/dgram"
     },
@@ -27,6 +31,13 @@
     },
     "./fs.js": {
       "node": "@node/fs"
+    },
+    "./http.js": {
+      "node": "@node/http",
+      "browser": "http"
+    },
+    "./https.js": {
+      "node": "@node/https"
     },
     "./isBuffer.js": {
       "~node": "./isBufferBrowser.js"
@@ -44,6 +55,10 @@
     "./process.js": {
       "node": "./process-node.js"
     },
+    "./punycode.js": {
+      "node": "@node/punycode",
+      "browser": "punycode"
+    },
     "./querystring.js": {
       "node": "@node/querystring"
     },
@@ -52,6 +67,14 @@
     },
     "./repl.js": {
       "node": "@node/repl"
+    },
+    "./stream.js": {
+      "node": "@node/stream",
+      "browser": "stream"
+    },
+    "./string_decoder": {
+      "node": "@node/string_decoder",
+      "browser": "string_decoder"
     },
     "./tls.js": {
       "node": "@node/tls"
@@ -64,6 +87,10 @@
     },
     "./vm.js": {
       "node": "@node/vm"
+    },
+    "./zlib.js": {
+      "node": "@node/zlib",
+      "browser": "zlib"
     }
   }
 }
