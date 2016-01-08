@@ -1,1 +1,0 @@
-throw new Error('The NodeJS "cluser" module is not available in the browser.');

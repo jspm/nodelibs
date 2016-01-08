@@ -1,4 +1,6 @@
 nodelibs
 ========
 
-NodeJS helper libraries for jspm
+DEPRECATED
+
+Former NodeJS helper libraries for jspm
